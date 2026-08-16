@@ -1,6 +1,0 @@
-torch
-sentence-transformers
-numpy
-fastapi
-uvicorn[standard]
-pybind11

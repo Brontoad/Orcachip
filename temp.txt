@@ -1,0 +1,39 @@
+CMAKE
+cmake_minimum_required(VERSION 3.15)
+project(orcachip LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Find pybind11
+find_package(pybind11 REQUIRED)
+
+# Define source files inside src/
+set(SOURCE_FILES
+    src/orcachip/bindings.cpp
+    src/orcachip/engine/vector_search_engine.cpp
+)
+
+# Build the Python extension module
+pybind11_add_module(_core ${SOURCE_FILES})
+
+# Include headers from src/
+target_include_directories(_core PRIVATE src/orcachip)
+
+REPO
+orcachip/                         <-- Root / Parent Repo
+├── pyproject.toml
+├── CMakeLists.txt                <-- HERE (Root Level)
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── src/
+│   └── orcachip/
+│       ├── __init__.py
+│       ├── bindings.cpp
+│       ├── engine/
+│       │   ├── vector_search_engine.h
+│       │   └── vector_search_engine.cpp
+│       └── utils/
+│           └── util.h
+└── samples/

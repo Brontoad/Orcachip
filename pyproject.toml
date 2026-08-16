@@ -1,0 +1,40 @@
+[build-system]
+requires = ["scikit-build-core>=1", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "orcachip"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+  { name="Joshua Miguel Calulut", email="joshuamc.calulut@gmail.com" },
+  { name="Brontoad", email="brontoadgames@gmail.com" },
+]
+description = "A small C++ vector search tool"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: C++",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+  "numpy>=1.20",
+]
+
+[project.urls]
+Homepage = "https://github.com/..."
+Issues = "https://github.com/..."
+
+[project.optional-dependencies]
+test = [
+  "pytest>=7.0",
+  "psutil"
+]
+
+[tool.scikit-build]
+cmake.source-dir = "."
+build.verbose = true
+build-dir = "build/{build_type}"
+wheel.packages = ["src/orcachip"]

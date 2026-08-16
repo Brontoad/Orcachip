@@ -1,2 +1,0 @@
-vector search (query, metric, max results, show diagnostics): results vector
-search_engine init(embedding bin file)
