@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <algorithm>
 #include <chrono>
 #include <cmath>
@@ -15,7 +14,7 @@
     #include "windows.h"
 #else
     #include <cstring>
-    #include <cerrno.h>
+    #include <cerrno>
     #include <sys/fcntl.h>
     #include <sys/mman.h>
     #include <sys/types.h>

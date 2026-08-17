@@ -126,7 +126,6 @@ SearchResult VectorSearchEngine::vector_search(
 }
 
 // Loads the embeddings from the memory and memory mapped to the RAM
-// TODO: Add another option for non windows system, for now Linux
 void VectorSearchEngine::get_embeddings_from_file(const char* file_name) {
 
     this->clean_embeddings_ptr();
@@ -200,7 +199,7 @@ void VectorSearchEngine::get_embeddings_from_file(const char* file_name) {
         }
 
         // Create file mapping object
-        void* fileMap = mmap(NULL, this->total_bytes, PROT_READ, MAP_SHARED, fd);
+        void* fileMap = mmap(NULL, this->total_bytes, PROT_READ, MAP_SHARED, fd, 0);
         if (fileMap == MAP_FAILED) {
             close(fd);
             throw std::runtime_error("Error creating file mapping. Code: " + std::string(strerror(errno)));
@@ -221,7 +220,7 @@ void VectorSearchEngine::clean_embeddings_ptr() {
         #ifdef _WIN32
             UnmapViewOfFile(static_cast<LPCVOID>(this->embeddings_ptr));
         #else
-            munmap(static_cast<void*>(this->embeddings_ptr), this->total_bytes);
+            munmap(const_cast<float*>(this->embeddings_ptr), this->total_bytes);
         #endif
 
         this->embeddings_ptr = nullptr;
