@@ -15,7 +15,9 @@ description = "A small C++ vector search tool"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: C++",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows"
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
