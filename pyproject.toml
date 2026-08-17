@@ -24,8 +24,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/..."
-Issues = "https://github.com/..."
+Homepage = "https://github.com/Brontoad/Orcachip"
+Issues = "https://github.com/Brontoad/Orcachip/issues"
 
 [project.optional-dependencies]
 test = [
